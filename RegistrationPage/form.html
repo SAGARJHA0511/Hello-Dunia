@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 300px;
+      margin: 50px auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var firstName = document.getElementById("firstName").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+      var mobileNumber = document.getElementById("mobileNumber").value;
+
+  
+      if (firstName.length < 6) {
+        alert("First name should be at least 6 characters.");
+        return false;
+      }
+
+     
+      if (password.length < 6) {
+        alert("Password should be more then 6 characters.");
+        return false;
+      }
+
+    
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+   
+      if (isNaN(mobileNumber) || mobileNumber.length !== 10) {
+        alert("Invalid mobile number. Please enter a 10-digit number.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <form onsubmit="return validateForm()">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <label for="mobileNumber">Mobile Number:</label>
+      <input type="tel" id="mobileNumber" name="mobileNumber" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+</body>
+</html>
